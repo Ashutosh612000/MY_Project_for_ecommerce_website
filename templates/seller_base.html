@@ -63,32 +63,11 @@
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href={% url 'home' %}>Home
+                <a class="nav-link" href={% url 'home' %}>Profile
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
-          
 
-
-              
-              <li class="nav-item">
-                <a class="nav-link" href={% url 'show_product' %}>Product</a>
-              </li>
-
-
-
-{% comment %}                 
-                <li class="nav-item dropdown">
-                  <a class="dropdown-toggle nav-link" data-toggle="dropdown" name="user_name" role="button" aria-haspopup="true" aria-expanded="false">Product</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    {% for item in show_user %}
-                      <option> <a  href=ur#/> {{item.category_name}}</option>
-                    {% endfor %}
-                  </div>
-                </li> {% endcomment %}
-
-              
-              
 
               {% if user.is_authenticated %}
 
@@ -102,22 +81,6 @@
                 <li class="nav-item">
                   <a class="nav-link" href={% url 'handlelogout' %}>Logout</a>
                 </li>
-                {% else %}
-              <li class="nav-item dropdown">
-                <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sign Up</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href={% url 'signupbuyer' %}>As Buyer </a>
-                    <a class="dropdown-item" href={% url 'signupseller' %}>As Seller </a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <li class="nav-item active">
-                  <a class="nav-link" href={% url 'handlelogin' %}>Login
-                    <span class="sr-only">(current)</span>
-                  </a>
-                </li>
-
-                
                 {% endif %}
 
 
@@ -133,7 +96,7 @@
  <!-- Header ends Here -->
 
 
-  {% block start %} 
+  {% block user %} 
   
   {% endblock  %}
 

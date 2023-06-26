@@ -8,4 +8,5 @@ urlpatterns = [
     path('login/',handlelogin,name='handlelogin'),
     path('logout/',handlelogout,name='handlelogout'),
     path('',home,name='home'),
+    # path('seller/',Seller,name='seller'),
 ]

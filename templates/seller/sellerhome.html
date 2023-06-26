@@ -1,5 +1,5 @@
-{% extends 'base.html' %}
-{% block start %}
+{% extends 'seller_base.html' %}
+{% block user %}
 <div>
      <form action="" method="POST">
     <!-- Page Content -->
@@ -7,13 +7,14 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1>Sign Up</h1>
-            <span>Welcome To Dodiya Mobile </span>
+               <h1>Hello Seller</h1>
+            <h1>Welcome To Dodiya Mobile</h1>
+            <span> Add Your Product </span>
           </div>
         </div>
       </div>
     </div>
-
+    {% csrf_token %}
     {% comment %} <div class="contact-information">
       <div class="container">
         <ul class="list-group list-group-flush">
@@ -106,9 +107,9 @@
                       </div>
                       <div class="col-sm-6 col-xs-12">
                          <div class="form-group">
-                              {% for i in Category  %}{% endfor %}
+                              
                               <select class="form-control" name='product_description' id='product_description'>
-                                   <option > < href=/products/</option>
+                                   <option > value=""> --products --</option>
                               </select>
                          </div>
                       </div>
@@ -117,7 +118,7 @@
                       <div class="col-sm-6 col-xs-12">
                          <div class="form-group">
                               <select class="form-control">
-                                   <option value="">--Comapny --</option>
+                                   {% comment %} <option value="">--Comapny --</option> {% endcomment %}
                                    <option value="">-- Samsung --</option>
                                    <option value="">-- Vivo --</option>
                                    <option value="">-- Google --</option>

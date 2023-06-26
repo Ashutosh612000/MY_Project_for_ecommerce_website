@@ -1,0 +1,167 @@
+
+{% extends 'base.html' %}
+
+{% block start %}
+<!-- Page Content -->
+<div class="services">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <h2>Products</h2>
+          <span>Aliquam id urna imperdiet libero mollis hendrerit</span>
+        </div>
+      </div>
+      {% for i in show %}
+      <br>
+      <div class="col-md-4">
+        <div class="service-item">
+          <img src="/media/{{ i.product_image }}" alt="NO-image" class="product-image">
+          <div class="down-content">
+            <h2>{{ i.product_name }}</h2>
+            <h4>{{ i.product_price }}</h4>
+            <a href="{% url 'Show_mobile' %}" class="filled-button">View More</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- Add CSS stylesheets -->
+<link rel="stylesheet" href="/static/css/style.css">
+
+<!-- Add JavaScript scripts -->
+<script src="/static/js/script.js"></script>
+
+<!-- Add CSS styles for product images -->
+<style>
+  .product-image {
+    width: 350%; /* Set the desired width */
+    height: 196; /* Maintain aspect ratio */
+  }
+</style>
+{% endblock %}
+            {% comment %} <br>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item">
+              <img src="/static/assets/images/product-2-720x480.jpg" alt="">
+              <div class="down-content">
+                <h2>Earphone</h2>
+               
+                <a href="product-details.html" class="filled-button">View More</a>
+              </div>
+            </div>
+
+            <br>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item">
+              <img src="/static/assets/images/product-3-720x480.jpg" alt="">
+              <div class="down-content">
+                <h2>Charger</h2>
+                
+                <a href="product-details.html" class="filled-button">View More</a>
+              </div>
+            </div>
+
+            <br>
+          </div>
+        </div>
+      </div>
+    </div> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} 
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+</style>
+</head>
+<body>
+
+
+<div>
+    <table>
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Photo</th>
+        </tr>
+        {% for i in show %}
+        <tr>
+            {% comment %} <td>{{i.first_name}}</td> {% endcomment %}
+            {% comment %} <td>{{i.product_name}}</td>
+            <td>{{i.product_price}}</td>
+            
+            <img src="/media/{{i.product_image}}" alt="NO-image"> {% endcomment %}
+            {% comment %} <td>
+              <form action="{% url 'deletedata' i.id %}">
+                {% csrf_token %}
+                <input type="submit" value="Delete">
+              </form>
+              <a href="{% url 'updatedata' i.id%}"><b>Update</a>
+           
+             
+            </td> {% endcomment %}
+        {% comment %} {% endfor %} {% endcomment %}
+        {% comment %} </tr>
+      
+    </table>
+    </div>
+
+
+</body>
+</html>  {% endcomment %}
+
+
+{% comment %} {% endblock %} {% endcomment %}

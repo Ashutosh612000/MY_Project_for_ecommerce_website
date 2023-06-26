@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.contrib.auth import authenticate ,login,logout
 from products.models import Category
+from products.views import product_seller
 
 
 # def home(request):
@@ -18,6 +19,7 @@ def home(request):
     return render(request, 'home.html',{'show_user': show_user})
 
 def handle_Signup_for_Buyer(request):
+    show_user = Category.objects.all()
     if request.method == 'POST':
             #Get teh post parameters
             
@@ -64,13 +66,13 @@ def handle_Signup_for_Buyer(request):
             messages.success(request, "Profile details updated.")
             
             return redirect('home') 
-    return render(request, 'signupbuyer.html')
+    return render(request, 'signupbuyer.html',{'show_user': show_user})
 
 
 
 
 def handle_Signup_for_Seller(request):
-
+    show_user = Category.objects.all()
     if request.method == 'POST':
             #Get teh post parameters
             
@@ -116,11 +118,12 @@ def handle_Signup_for_Seller(request):
         
             messages.success(request, "Profile details updated.")
             
-            return redirect('home') 
-    return render(request, 'signupseller.html')
+            return redirect('sellerhome') 
+    return render(request, 'signupseller.html',{'show_user': show_user})
 
 
 def handlelogin(request):
+    show_user = Category.objects.all()
     if request.method == 'POST':
         loginemail = request.POST.get('loginemail') 
         loginpass = request.POST.get('loginpass')  
@@ -130,17 +133,17 @@ def handlelogin(request):
         if user is not None:
             login(request, user)  # Log in the authenticated user
 
-            # if user.user_type == 'seller': 
-            #     return render(request, 'test1.html') 
-            # else:
-            #     return render(request, 'test2.html') 
+            if user.user_type == 'seller': 
+                return redirect('sellerhome') 
+            else:
+                return redirect('home') 
 
             messages.success(request, "Login successful") 
             return redirect('home')  
         else:
             messages.error(request, "Invalid details")
             return redirect('home')  
-    return render(request, 'login.html')
+    return render(request, 'login.html',{'show_user': show_user})
 
 def handlelogout(request):
         logout(request)
@@ -151,3 +154,6 @@ def handlelogout(request):
 #     logout(request)
 #     messages.success(request, 'Logout successfully')
 #     return redirect('index')
+
+# def Seller(request):
+#     return render(request, 'seller/sellerhome.html')
